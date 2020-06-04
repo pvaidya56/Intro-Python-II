@@ -39,7 +39,8 @@ room['treasure'].s_to = room['narrow']
 
 # Make a new player object that is currently in the 'outside' room.
 player1 = Player('Priya', room['outside'], [])
-print(room["outside"])
+print(player1.current_room.name)
+# print(room["outside"])
 
 user = input("Directions: \n [n] - north \n [s] - south \n [e] - east \n [w] - west \n [q] - quit \n Which direction would you like to travel:" )
 # Write a loop that:
@@ -52,11 +53,12 @@ user = input("Directions: \n [n] - north \n [s] - south \n [e] - east \n [w] - w
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
-while not user == "q":
-    if player1.current_room == "outside":
+while user != "q":
+    print(user)
+    if player1.current_room.name == "Outside Cave Entrance":
         if user == "n":
-           player1.current_room = room[player1.current_room].n_to
-           user = ""
+           player1.current_room = player1.current_room.n_to
+        #    user = ""
         if user == "s":
             print("nope, try again")
         if user == "e":
@@ -64,48 +66,41 @@ while not user == "q":
         if user == "w":
             print("nope, try again")
 
-    if player1.current_room == "foyer":
+    if player1.current_room.name == "Foyer":
         if user == "n":
-           player1.current_room = room[player1.current_room].n_to
-           user = ""
+           player1.current_room = player1.current_room.n_to
         if user == "s":
-           player1.current_room = room[player1.current_room].s_to
-           user == ""
+           player1.current_room = player1.current_room.s_to
         if user == "e":
-           player1.current_room = room[player1.current_room].e_to
-           user == ""
+           player1.current_room = player1.current_room.e_to
         if user == "w":
             print("foyer west")
 
-    if player1.current_room == "overlook":
+    if player1.current_room.name == "Grand Overlook":
         if user == "n":
            print("nope, try again")
         if user == "s":
-           player1.current_room = room[player1.current_room].s_to
-           user == ""
+           player1.current_room = player1.current_room.s_to
         if user == "e":
            print("nope, try again")
         if user == "w":
            print("nope, try again")
 
-    if player1.current_room == "narrow":
+    if player1.current_room.name == "Narrow Passage":
         if user == "n":
-           player1.current_room = room[player1.current_room].n_to
-           user == ""
+           player1.current_room = player1.current_room.n_to
         if user == "s":
            print("nope, try again")
         if user == "e":
            print("nope, try again")
         if user == "w":
-           player1.current_room = room[player1.current_room].w_to
-           user == ""
+           player1.current_room = player1.current_room.w_to
 
-    if player1.current_room == "treasure":
+    if player1.current_room.name == "Treasure Chamber":
         if user == "n":
            print("nope, try again")
         if user == "s":
-           player1.current_room = room[player1.current_room].s_to
-           user == ""
+           player1.current_room = player1.current_room.s_to
         if user == "e":
            print("nope, try again")
         if user == "w":
